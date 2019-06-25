@@ -1,0 +1,34 @@
+{
+  "name": "runnerty-cli",
+  "version": "0.0.1",
+  "description": "Runnerty CLI Tool",
+  "main": "index.js",
+  "preferGlobal": true,
+  "directories": {
+    "bin": "./bin"
+  },
+  "bin": {
+    "rty": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runnerty/runnerty-cli.git"
+  },
+  "keywords": [
+    "runnerty"
+  ],
+  "author": "Coderty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/runnerty/runnerty-cli/issues"
+  },
+  "homepage": "https://github.com/runnerty/runnerty-cli#readme",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "commander": "^2.20.0",
+    "fs-extra": "^8.0.1"
+  }
+}

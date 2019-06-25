@@ -1,0 +1,31 @@
+{
+  "name": "runnerty-quick-start",
+  "version": "2.0.0",
+  "description": "Runnerty quick start example project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:runnerty/runnerty-quick-start.git"
+  },
+  "keywords": [
+    "runnerty",
+    "quick-start",
+    "example",
+    "project"
+  ],
+  "author": "Coderty",
+  "license": "MIT",
+  "dependencies": {
+    "@runnerty/executor-shell": "^1.0.2",
+    "@runnerty/notifier-console": "^1.0.0",
+    "@runnerty/trigger-schedule": "0.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^5.1.0",
+    "prettier": "^1.18.2"
+  }
+}

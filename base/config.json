@@ -1,0 +1,20 @@
+{
+  "triggers": [
+    {
+      "id": "schedule_default",
+      "type": "@runnerty-trigger-schedule"
+    }
+  ],
+  "executors": [
+    {
+      "id": "shell_default",
+      "type": "@runnerty-executor-shell"
+    }
+  ],
+  "notifiers": [
+    {
+      "id": "console_default",
+      "type": "@runnerty-notifier-console"
+    }
+  ]
+}

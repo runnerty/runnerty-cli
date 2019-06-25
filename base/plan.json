@@ -1,0 +1,54 @@
+{
+  "chains": [
+    {
+      "id": "CHAIN_ONE",
+      "name": "Chain one sample",
+      "triggers": [
+        {
+          "id": "schedule_default",
+          "schedule_interval": "*/1 * * * *"
+        }
+      ],
+      "notifications": {
+        "on_start": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
+          }
+        ]
+      },
+      "processes": [
+        {
+          "id": "PROCESS_ONE",
+          "name": "Proccess One",
+          "exec": {
+            "id": "shell_default",
+            "command": "echo Runnerty: hello world!"
+          },
+          "output": [
+            {
+              "file_name": "./test.log",
+              "write": [
+                "EXECUTION @GETVALUE(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GETVALUE(PROCESS_EXEC_MSG_OUTPUT)"
+              ],
+              "concat": true,
+              "maxsize": "10mb"
+            }
+          ],
+          "notifications": {
+            "on_start": [],
+            "on_fail": [],
+            "on_retry": [],
+            "on_end": []
+          }
+        }
+      ]
+    }
+  ]
+}
