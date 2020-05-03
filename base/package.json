@@ -19,13 +19,13 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "@runnerty/executor-shell": "^1.0.2",
-    "@runnerty/notifier-console": "^1.0.0",
+    "@runnerty/executor-shell": "1.0.5",
+    "@runnerty/notifier-console": "1.0.0",
     "@runnerty/trigger-schedule": "0.0.1"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^5.1.0",
-    "prettier": "^1.18.2"
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.11.0",
+    "prettier": "2.0.5"
   }
 }
