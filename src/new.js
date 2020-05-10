@@ -11,9 +11,9 @@ module.exports = function newProject(project) {
   fs.copy(sample_dir_path, detination_path);
   console.log(
     colors.bold(
-      `${colors.green('✔')} Sample project ${colors.green(
-        project
-      )} has been created in ${colors.green(detination_path)}\n`
+      `${colors.green('✔')} Sample project ${colors.green(project)} has been created in ${colors.green(
+        detination_path
+      )}\n`
     )
   );
 };
