@@ -19,8 +19,8 @@ program
     console.log('');
     console.log('Examples:');
     console.log('');
-    console.log('  $rn new');
-    console.log('  $rn new my_runnerty_project');
+    console.log('  $rty new');
+    console.log('  $rty new my_runnerty_project');
   });
 
 program.parse(process.argv);

@@ -1,6 +1,6 @@
 {
   "name": "runnerty-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Runnerty CLI Tool",
   "main": "index.js",
   "preferGlobal": true,
@@ -11,7 +11,8 @@
     "rty": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.js' && prettier --check '**'"
   },
   "repository": {
     "type": "git",
