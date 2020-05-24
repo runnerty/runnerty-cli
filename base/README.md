@@ -12,11 +12,6 @@ A basic Runnerty planification needs just these files:
 From your command line:
 
 ```bash
-# Install your dependencies
-npm install
-```
-
-```bash
 # start the project
 npm start
 ```
