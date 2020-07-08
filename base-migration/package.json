@@ -1,26 +1,21 @@
 {
-  "name": "runnerty-quick-start",
-  "version": "2.0.0",
-  "description": "Runnerty quick start example project",
+  "name": "runnerty-migration-project",
+  "version": "0.0.1",
+  "description": "Runnerty crontab migration",
   "main": "index.js",
   "scripts": {
     "start": "runnerty",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git@github.com:runnerty/runnerty-quick-start.git"
   },
   "keywords": [
     "runnerty",
-    "quick-start",
-    "example",
-    "project"
+    "migration"
   ],
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "runnerty": "^2.6.3",
     "@runnerty/executor-shell": "^1.0.5",
     "@runnerty/notifier-console": "^1.0.0",
     "@runnerty/trigger-schedule": "^2.0.0"

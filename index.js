@@ -3,6 +3,7 @@
 'use strict';
 const program = require('commander');
 const newProject = require('./src/new.js');
+const migrateProject = require('./src/migrate-crontab.js');
 
 // CHECK ARGS APP:
 program.version('Runnerty CLI ' + require('./package.json').version, '-v, --version');
@@ -21,6 +22,21 @@ program
     console.log('');
     console.log('  $rty new');
     console.log('  $rty new my_runnerty_project');
+  });
+// migrate:
+program
+  .command('migrate [project] [crontab_path]')
+  .alias('m')
+  .description('migrate crontab to new runnerty project')
+  .action((project, crontab_path) => {
+    migrateProject(project, crontab_path);
+  })
+  .on('--help', () => {
+    console.log('');
+    console.log('Examples:');
+    console.log('');
+    console.log('  $rty migrate my_runnerty_migrated_project');
+    console.log('  $rty migrate my_runnerty_migrated_project /usr/lib/cron/tabs/my_user');
   });
 
 program.parse(process.argv);

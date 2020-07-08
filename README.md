@@ -42,6 +42,18 @@ npm i -g runnerty-cli
 rty new my-workflow
 ```
 
+### Migrate CRON file to runnerty project
+
+From "crontab -l" of the system:
+```bash
+rty migrate my-workflow 
+```
+
+From a crontab file:
+```bash
+rty migrate my-workflow my-crontab-file.txt
+```
+
 ### For more options
 
 ```bash

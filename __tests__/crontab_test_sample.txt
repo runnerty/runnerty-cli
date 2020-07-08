@@ -1,0 +1,20 @@
+MAILTO="test@runnerty.io"
+#
+# SAMPLE LINE COMMENT 1
+# SAMPLE LINE COMMENT 2
+# SAMPLE LINE COMMENT 3
+# SAMPLE LINE COMMENT 4
+# SAMPLE LINE COMMENT 5
+#
+# m h  dom mon dow   command
+
+*/50 * * * * php /var/www/comand1 arg1 arg2 > /var/logs/test.log
+0 */1 * * * python /home/test.py
+0 */1 * * * echo hi
+*/15 * * * * /usr/bin/php7.1 /var/app.php param1 2>&1 | grep -v "runnerty testing" >> /var/www/html/runnerty.io/log/cron.log
+5 4 * * * /usr/bin/php7.1 /var/www/html/runnerty.io/update/cron.php >> /var/log/runnerty/update.cron.log
+15 14 1 * * /usr/bin/php7.1 /bin/myscript setup:cron:run 2> /var/log/runnerty/rty.log > /var/log/runnerty/rty.log
+*/15 * * * * /usr/bin/php7.1 /bin/myscript setup:cron:run >> /var/log/runnerty/rty.log | command2 2 && command 3 stdin_before_command
+*/15 * * * * cmd1 >> /var/log1.log | cmd2 & cmd3 && cmd4 > c4.log || cmd5
+0 22 * * 1-5 echo test 1> test1.log 2> test2.log
+23 0-20/2 * * * cmd1 >> /var/log1.log | cmd2 1> /var/test.txt 2>> /cmd2.log & cmd3 1>> /cmd3.log && cmd4 >> /var/rnty.log || cmd5 2>&1
