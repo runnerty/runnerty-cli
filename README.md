@@ -12,12 +12,6 @@
 <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg">
 </a>
 
-[downloads-image]: https://img.shields.io/npm/dm/runnerty-cli.svg
-[npm-url]: https://www.npmjs.com/package/runnerty-cli
-[npm-image]: https://img.shields.io/npm/v/runnerty-cli.svg
-[david-badge]: https://david-dm.org/runnerty/runnerty-cli.svg
-[david-badge-url]: https://david-dm.org/runnerty/runnerty-cli
-
 ## What is?
 
 Early version of Runnerty CLI
@@ -61,3 +55,8 @@ rty --help
 ```
 
 [runnerty]: http://www.runnerty.io
+[downloads-image]: https://img.shields.io/npm/dm/runnerty-cli.svg
+[npm-url]: https://www.npmjs.com/package/runnerty-cli
+[npm-image]: https://img.shields.io/npm/v/runnerty-cli.svg
+[david-badge]: https://david-dm.org/runnerty/runnerty-cli.svg
+[david-badge-url]: https://david-dm.org/runnerty/runnerty-cli

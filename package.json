@@ -1,6 +1,6 @@
 {
   "name": "runnerty-cli",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Runnerty CLI Tool",
   "main": "index.js",
   "preferGlobal": true,
@@ -34,9 +34,9 @@
     "cron-parser": "^2.15.0"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-jest": "23.18.0",
+    "eslint-plugin-jest": "23.19.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
   }
