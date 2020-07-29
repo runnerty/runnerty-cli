@@ -5,3 +5,4 @@ samples
 *.md
 *.json
 LICENSE
+Dockerfile
