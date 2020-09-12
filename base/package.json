@@ -1,6 +1,6 @@
 {
   "name": "runnerty-quick-start",
-  "version": "2.0.0",
+  "version": "0.0.1",
   "description": "Runnerty quick start example project",
   "main": "index.js",
   "scripts": {
@@ -20,15 +20,9 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "runnerty": "^2.7.0",
+    "runnerty": "^2.7.1",
     "@runnerty/executor-shell": "^1.0.5",
     "@runnerty/notifier-console": "^1.0.0",
     "@runnerty/trigger-schedule": "^2.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
   }
 }

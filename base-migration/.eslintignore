@@ -1,8 +1,0 @@
-#IDE
-.vscode
-#
-node_modules
-*.md
-*.json
-LICENSE
-Dockerfile
