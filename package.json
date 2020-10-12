@@ -1,6 +1,6 @@
 {
   "name": "runnerty-cli",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "Runnerty CLI Tool",
   "main": "index.js",
   "preferGlobal": true,

@@ -4,7 +4,7 @@
   <a href="http://runnerty.io">
     <img height="257" src="https://runnerty.io/assets/header/logo-stroked.png">
   </a>
-  <p align="center">A new way for processes managing</p>
+  <p align="center">Smart Processes Management</p>
 </p>
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency Status][david-badge]][david-badge-url]
@@ -46,6 +46,11 @@ rty migrate my-workflow
 From a crontab file:
 ```bash
 rty migrate my-workflow my-crontab-file.txt
+```
+
+### Generate a directory with sample email templates
+```bash
+rty templates
 ```
 
 ### For more options

@@ -34,9 +34,9 @@
           },
           "output": [
             {
-              "file_name": "./test.log",
+              "file_name": "./@GETVALUE(PROCESS_ID).log",
               "write": [
-                "EXECUTION @GETVALUE(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GETVALUE(PROCESS_EXEC_MSG_OUTPUT)"
+                "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
               ],
               "concat": true,
               "maxsize": "10mb"

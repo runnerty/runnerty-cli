@@ -7,10 +7,7 @@
     "start": "runnerty",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:runnerty/runnerty-quick-start.git"
-  },
+  "repository": {},
   "keywords": [
     "runnerty",
     "quick-start",

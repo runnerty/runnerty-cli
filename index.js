@@ -4,6 +4,7 @@
 const program = require('commander');
 const newProject = require('./src/new.js');
 const migrateProject = require('./src/migrate-crontab.js');
+const generateTemplates = require('./src/templates.js');
 
 // CHECK ARGS APP:
 program.version('Runnerty CLI ' + require('./package.json').version, '-v, --version');
@@ -37,6 +38,14 @@ program
     console.log('');
     console.log('  $rty migrate my_runnerty_migrated_project');
     console.log('  $rty migrate my_runnerty_migrated_project /usr/lib/cron/tabs/my_user');
+  });
+// templates:
+program
+  .command('templates')
+  .alias('t')
+  .description('generates a directory with sample email templates')
+  .action(() => {
+    generateTemplates();
   });
 
 program.parse(process.argv);
