@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "runnerty": "^2.7.1",
-    "@runnerty/executor-shell": "^1.0.5",
+    "@runnerty/executor-shell": "^2.0.0",
     "@runnerty/notifier-console": "^1.0.0",
     "@runnerty/trigger-schedule": "^2.0.0"
   }
