@@ -9,13 +9,13 @@ const path = require('path');
 
 const schemas = {
   config: {
-    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/src/config-2.6.json'
+    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/config.json'
   },
   plan_chains_link: {
-    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/src/plan_chains_link-2.6.json'
+    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan-chains-link.json'
   },
   chains: {
-    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/src/chain-2.6.json'
+    schema: 'https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/chain.json'
   }
 };
 

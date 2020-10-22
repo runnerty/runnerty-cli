@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/config-2.6.json",
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/config.json",
   "triggers": [
     {
       "id": "schedule_default",
