@@ -1,6 +1,6 @@
 {
   "name": "runnerty-cli",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Runnerty CLI Tool",
   "main": "index.js",
   "preferGlobal": true,
@@ -31,7 +31,7 @@
     "colors": "1.4.0",
     "commander": "5.1.0",
     "fs-extra": "9.0.1",
-    "cron-parser": "^2.15.0"
+    "cron-parser": "^2.17.0"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
