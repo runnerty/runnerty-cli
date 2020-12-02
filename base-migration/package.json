@@ -1,6 +1,6 @@
 {
   "name": "runnerty-migration-project",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Runnerty crontab migration",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "@runnerty/executor-shell": "^2.0.0",
-    "@runnerty/notifier-console": "^1.0.0",
-    "@runnerty/trigger-schedule": "^2.0.0"
+    "@runnerty/executor-shell": "alpha",
+    "@runnerty/notifier-console": "alpha",
+    "@runnerty/trigger-schedule": "alpha"
   }
 }
