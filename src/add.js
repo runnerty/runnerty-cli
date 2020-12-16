@@ -6,26 +6,29 @@ const path = require('path');
 const npa = require('npm-package-arg');
 const colors = require('colors');
 const execute = require('./lib/exec');
+const resolve = require('resolve');
 
 async function addModule(moduleId, options) {
   try {
-    console.log(options);
     console.log(colors.bold('Please wait, running npm install...'));
-    await execute(`npm install ${moduleId} --save`, null);
+    // await execute(`npm install ${moduleId} --save`, null);
     const npaInfo = npa(moduleId);
     const moduleName = npaInfo.name;
-    const modulePath = path.dirname(require.resolve(moduleName));
+    const modulePath = path.dirname(resolve.sync(moduleName, { basedir: process.cwd() }));
     const configPath = options.configFilePath || './config.json';
     const scaffoldPath = path.join(modulePath, '/scaffold');
     const scaffoldConfigPath = path.join(scaffoldPath, 'config.json');
     const scaffoldPlanPath = path.join(scaffoldPath, 'plan.json');
+    const scaffoldAssetsPath = path.join(scaffoldPath, '/assets');
 
     console.log(colors.bold(`${colors.bgGreen('√')} Module ${moduleName} installed.`));
 
     if (fs.existsSync(scaffoldPath) && !options.withoutscaffold) {
       // Scaffold config:
       if (fs.existsSync(configPath) && fs.existsSync(scaffoldConfigPath)) {
-        console.log(colors.bold(`${colors.bgGreen('√')} Applying scaffold sample config to ${path.basename(configPath)}`));
+        console.log(
+          colors.bold(`${colors.bgGreen('√')} Applying scaffold sample config to ${path.basename(configPath)}`)
+        );
         const configObject = await jsonfile.readFile(configPath);
         const scaffoldConfigObject = await jsonfile.readFile(scaffoldConfigPath);
 
@@ -50,15 +53,20 @@ async function addModule(moduleId, options) {
         console.log(colors.bold(`${colors.bgGreen('√')} Formatting config.json with Prettier.`));
         await execute(`npx prettier --write ./config.json`, null);
       }
-
+      // Scaffold plan:
       if (fs.existsSync(scaffoldPlanPath)) {
         let scaffoldPlanName = `./plan_${moduleName}_sample.json`;
-        npaInfo.scope+'/'
-        if(npaInfo.scope){
-            scaffoldPlanName = scaffoldPlanName.replace(npaInfo.scope+'/','');
+        npaInfo.scope + '/';
+        if (npaInfo.scope) {
+          scaffoldPlanName = scaffoldPlanName.replace(npaInfo.scope + '/', '');
         }
         fs.copyFileSync(scaffoldPlanPath, scaffoldPlanName);
         console.log(colors.bold(`${colors.bgGreen('√')} Plan sample generated: ${path.basename(scaffoldPlanName)}`));
+      }
+      // Scaffold assets:
+      if (fs.existsSync(scaffoldAssetsPath)) {
+        fs.copySync(scaffoldAssetsPath, './');
+        console.log(colors.bold(`${colors.bgGreen('√')} Assets generated.`));
       }
     }
   } catch (err) {
