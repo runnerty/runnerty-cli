@@ -7,7 +7,7 @@ const addModule = require('./src/add.js');
 const migrateProject = require('./src/migrate-crontab.js');
 const generateTemplates = require('./src/templates.js');
 
-let options = {};
+const options = {};
 
 // CHECK ARGS APP:
 program.version('Runnerty CLI ' + require('./package.json').version, '-v, --version');
