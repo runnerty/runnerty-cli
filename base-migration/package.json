@@ -15,8 +15,8 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "@runnerty/executor-shell": "alpha",
-    "@runnerty/notifier-console": "alpha",
-    "@runnerty/trigger-schedule": "alpha"
+    "@runnerty/executor-shell": "3.0.0",
+    "@runnerty/notifier-console": "3.0.0",
+    "@runnerty/trigger-schedule": "3.0.0"
   }
 }
