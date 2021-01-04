@@ -22,7 +22,7 @@ You can simple use it via **npx**
 npx runnerty-cli new my-workflow
 ```
 
-## Instalation
+## Installation
 
 ```bash
 npm i -g runnerty-cli
