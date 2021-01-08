@@ -54,7 +54,7 @@ rty templates
 ```
 
 ### Add Runnerty modules
-This command installs modules in your project, includes an example configuration in your project's `config.json` and creates an example plan for using the module. The module must contain scaffolds to allow the generation of examples.
+This command installs modules in your project. You can also include a sample configuration in your project's `config.json` file and/or include a sample plan to use the module. The module must contain scaffolds to allow the generation of examples.
 ```bash
 rty add @runnerty/module-name
 ```
