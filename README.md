@@ -14,7 +14,7 @@
 
 ## What is?
 
-Early version of Runnerty CLI
+Runnerty CLI
 
 You can simple use it via **npx**
 
@@ -22,7 +22,7 @@ You can simple use it via **npx**
 npx runnerty-cli new my-workflow
 ```
 
-## Instalation
+## Installation
 
 ```bash
 npm i -g runnerty-cli
@@ -51,6 +51,26 @@ rty migrate my-workflow my-crontab-file.txt
 ### Generate a directory with sample email templates
 ```bash
 rty templates
+```
+
+### Add Runnerty modules
+This command installs modules in your project. You can also include a sample configuration in your project's `config.json` file and/or include a sample plan to use the module. The module must contain scaffolds to allow the generation of examples.
+```bash
+rty add @runnerty/module-name
+```
+
+```bash
+rty add @runnerty/module-name@version
+```
+
+You can specify a custom `config.json` file path:
+```bash
+rty add @runnerty/module-name@version -c ./config_dev.json
+```
+
+You can specify that do not include scaffolding:
+```bash
+rty add @runnerty/module-name@version -ws
 ```
 
 ### For more options

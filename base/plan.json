@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/2.8/plan.json",
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/schemas/3.0/plan.json",
   "chains": [
     {
       "id": "CHAIN_ONE",
@@ -22,7 +22,37 @@
             "id": "console_default",
             "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
           }
+        ],
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') FAIL OF THE CHAIN: @GV(CHAIN_ID)",
+            "mode": "error"
+          }
         ]
+      },
+      "defaults_processes": {
+        "notifications": {
+          "on_start": [
+            {
+              "id": "console_default",
+              "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START: PROCESS @GV(PROCESS_ID)"
+            }
+          ],
+          "on_fail": [
+            {
+              "id": "console_default",
+              "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') ERROR: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_ERR_OUTPUT)",
+              "mode": "error"
+            }
+          ],
+          "on_end": [
+            {
+              "id": "console_default",
+              "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID)"
+            }
+          ]
+        }
       },
       "processes": [
         {
@@ -41,13 +71,7 @@
               "concat": true,
               "maxsize": "10mb"
             }
-          ],
-          "notifications": {
-            "on_start": [],
-            "on_fail": [],
-            "on_retry": [],
-            "on_end": []
-          }
+          ]
         }
       ]
     }

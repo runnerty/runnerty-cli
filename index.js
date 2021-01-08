@@ -3,11 +3,24 @@
 'use strict';
 const program = require('commander');
 const newProject = require('./src/new.js');
+const addModule = require('./src/add.js');
 const migrateProject = require('./src/migrate-crontab.js');
 const generateTemplates = require('./src/templates.js');
 
+const options = {};
+
 // CHECK ARGS APP:
 program.version('Runnerty CLI ' + require('./package.json').version, '-v, --version');
+
+// config path:
+program.option('-c, --config <path>', `set config path to add module.`, filePath => {
+  options.configFilePath = filePath;
+});
+
+// without scaffold:
+program.option('-ws, --withoutscaffold', `do not include scaffolding in add module.`, () => {
+  options.withoutscaffold = true;
+});
 
 // new:
 program
@@ -46,6 +59,13 @@ program
   .description('generates a directory with sample email templates')
   .action(() => {
     generateTemplates();
+  });
+// add module:
+program
+  .command('add <module>')
+  .description('add runnerty module')
+  .action(module => {
+    addModule(module, options);
   });
 
 program.parse(process.argv);
