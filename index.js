@@ -22,13 +22,22 @@ program.option('-ws, --withoutscaffold', `do not include scaffolding in add modu
   options.withoutscaffold = true;
 });
 
+// Runnerty version:
+program.option(
+  '-rv, --runnertyversion <version>',
+  `set runnerty version to install as a dependency when creating a new project`,
+  runnertyVersion => {
+    options.runnertyVersion = runnertyVersion;
+  }
+);
+
 // new:
 program
   .command('new [project]')
   .alias('n')
   .description('create the project')
   .action(project => {
-    newProject(project);
+    newProject(project, options);
   })
   .on('--help', () => {
     console.log('');
