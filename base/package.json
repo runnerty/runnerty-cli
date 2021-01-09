@@ -2,7 +2,6 @@
   "name": "runnerty-quick-start",
   "version": "0.0.3",
   "description": "Runnerty quick start example project",
-  "main": "index.js",
   "scripts": {
     "start": "runnerty",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,12 +13,12 @@
     "example",
     "project"
   ],
-  "author": "Coderty",
+  "author": "Runnerty Tech",
   "license": "MIT",
   "dependencies": {
     "runnerty": "latest",
-    "@runnerty/executor-shell": "3.0.0",
-    "@runnerty/notifier-console": "3.0.0",
-    "@runnerty/trigger-schedule": "3.0.0"
+    "@runnerty/executor-shell": "^3.0.0",
+    "@runnerty/notifier-console": "^3.0.0",
+    "@runnerty/trigger-schedule": "^3.0.0"
   }
 }
