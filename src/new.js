@@ -21,7 +21,7 @@ async function newProject(project, options) {
     }
 
     console.log(colors.bold('Please wait, running npm install...'));
-    await execute(`npm install --prefix ${detination_path}`, null);
+    await execute(`npm install --prefix ${detination_path} ${detination_path}`, null);
     console.log(colors.bold(`${colors.bgGreen('√')} npm installation finish.`));
     console.log(
       colors.bold(
