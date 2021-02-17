@@ -52,7 +52,17 @@
               "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID)"
             }
           ]
-        }
+        },
+        "output": [
+          {
+            "file_name": "./@GETVALUE(PROCESS_ID).log",
+            "write": [
+              "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
+            ],
+            "concat": true,
+            "maxsize": "10mb"
+          }
+        ]
       },
       "processes": [
         {
@@ -61,17 +71,7 @@
           "exec": {
             "id": "shell_default",
             "command": "echo Runnerty: hello world!"
-          },
-          "output": [
-            {
-              "file_name": "./@GETVALUE(PROCESS_ID).log",
-              "write": [
-                "EXECUTION @GV(PROCESS_ID) - AT @GETDATE('YYYY-MM-DD HH:mm:ss')\n @GV(PROCESS_EXEC_ERR_OUTPUT) @GV(PROCESS_EXEC_MSG_OUTPUT)"
-              ],
-              "concat": true,
-              "maxsize": "10mb"
-            }
-          ]
+          }
         }
       ]
     }

@@ -14,9 +14,8 @@
   "author": "Runnerty Tech",
   "license": "MIT",
   "dependencies": {
-    "runnerty": "latest",
-    "@runnerty/executor-shell": "^3.0.0",
-    "@runnerty/notifier-console": "^3.0.0",
-    "@runnerty/trigger-schedule": "^3.0.0"
+    "@runnerty/executor-shell": "latest",
+    "@runnerty/notifier-console": "latest",
+    "@runnerty/trigger-schedule": "latest"
   }
 }
