@@ -1,6 +1,6 @@
 {
   "name": "runnerty-quick-start",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Runnerty quick start example project",
   "scripts": {
     "start": "runnerty",
