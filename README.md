@@ -39,22 +39,27 @@ rty new my-workflow
 ### Migrate CRON file to runnerty project
 
 From "crontab -l" of the system:
+
 ```bash
-rty migrate my-workflow 
+rty migrate my-workflow
 ```
 
 From a crontab file:
+
 ```bash
 rty migrate my-workflow my-crontab-file.txt
 ```
 
 ### Generate a directory with sample email templates
+
 ```bash
 rty templates
 ```
 
 ### Add Runnerty modules
+
 This command installs modules in your project. You can also include a sample configuration in your project's `config.json` file and/or include a sample plan to use the module. The module must contain scaffolds to allow the generation of examples.
+
 ```bash
 rty add @runnerty/module-name
 ```
@@ -64,11 +69,13 @@ rty add @runnerty/module-name@version
 ```
 
 You can specify a custom `config.json` file path:
+
 ```bash
 rty add @runnerty/module-name@version -c ./config_dev.json
 ```
 
 You can specify that do not include scaffolding:
+
 ```bash
 rty add @runnerty/module-name@version -ws
 ```
