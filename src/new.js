@@ -7,7 +7,8 @@ const execute = require('./lib/exec');
 
 async function newProject(project, options) {
   project = project || 'runnerty_sample_project';
-  const sample_dir_path = path.join(__dirname, '../base/');
+  const scaffoldProject = options.prod ? '../prod' : '../base/';
+  const sample_dir_path = path.join(__dirname, scaffoldProject);
   const detination_path = path.join(process.cwd(), project);
 
   try {

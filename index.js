@@ -22,6 +22,11 @@ program.option('-ws, --withoutscaffold', `do not include scaffolding in add modu
   options.withoutscaffold = true;
 });
 
+// new project with production scaffold:
+program.option('-p, --prod', `to create a production project scaffold`, () => {
+  options.prod = true;
+});
+
 // Runnerty version:
 program.option(
   '-rv, --runnertyversion <version>',

@@ -1,0 +1,23 @@
+{
+  "name": "runnerty-quick-start",
+  "version": "1.0.0",
+  "description": "Runnerty quick start example project",
+  "scripts": {
+    "start": "runnerty",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "keywords": [
+    "runnerty",
+    "quick-start",
+    "example",
+    "project"
+  ],
+  "author": "Runnerty Tech",
+  "license": "MIT",
+  "dependencies": {
+    "@runnerty/executor-shell": "latest",
+    "@runnerty/notifier-console": "latest",
+    "@runnerty/trigger-schedule": "latest"
+  }
+}
