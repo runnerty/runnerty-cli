@@ -18,7 +18,7 @@
     "on_end": [
       {
         "id": "console_default",
-        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID): : @GV(PROCESS_EXEC_MSG_OUTPUT)"
+        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(CHAIN_ID)"
       }
     ],
     "on_fail": [
@@ -47,7 +47,7 @@
       "on_end": [
         {
           "id": "console_default",
-          "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID)"
+          "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END: PROCESS @GV(PROCESS_ID): @GV(PROCESS_EXEC_MSG_OUTPUT)"
         }
       ]
     },

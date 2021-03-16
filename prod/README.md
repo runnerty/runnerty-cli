@@ -14,7 +14,7 @@ From your command line:
 
 ```bash
 # start the project
-npm start
+runnerty
 ```
 
 ## Resources for Learning Runnerty
