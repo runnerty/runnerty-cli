@@ -51,7 +51,7 @@ async function addModule(moduleId, options) {
         await jsonfile.writeFile(configPath, configObject, { spaces: 2 });
 
         console.log(colors.bold(`${colors.bgGreen('√')} Formatting config.json with Prettier.`));
-        await execute(`npx prettier --write ./config.json`, null);
+        await execute(`npx prettier --write ${configPath}`, null);
       }
       // Scaffold plan:
       if (fs.existsSync(scaffoldPlanPath)) {

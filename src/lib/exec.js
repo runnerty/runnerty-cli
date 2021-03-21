@@ -1,15 +1,26 @@
 'use strict';
 
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 function execute(cmd, args) {
   return new Promise((resolve, reject) => {
-    const _args = {
-      maxBuffer: 1024 * 2000
-    };
-    exec(cmd, _args, (err, stdout, stderr) => {
-      if (err) reject(err);
-      resolve(`${stdout}${stderr}`);
+    const child = spawn(cmd, args, { shell: true });
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
+    /*
+    child.on('exit', (code, signal) => {
+      resolve(code);
+    });
+    */
+    child.on('close', code => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject();
+      }
+    });
+    child.on('error', err => {
+      reject(err);
     });
   });
 }

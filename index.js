@@ -5,7 +5,6 @@ const program = require('commander');
 const newProject = require('./src/new.js');
 const addModule = require('./src/add.js');
 const migrateProject = require('./src/migrate-crontab.js');
-const generateTemplates = require('./src/templates.js');
 
 const options = {};
 
@@ -18,7 +17,7 @@ program.option('-c, --config <path>', `set config path to add module.`, filePath
 });
 
 // without scaffold:
-program.option('-ws, --withoutscaffold', `do not include scaffolding in add module.`, () => {
+program.option('-ws, --without-scaffold', `do not include scaffolding in add module.`, () => {
   options.withoutscaffold = true;
 });
 
@@ -29,7 +28,7 @@ program.option('-p, --prod', `to create a production project scaffold`, () => {
 
 // Runnerty version:
 program.option(
-  '-rv, --runnertyversion <version>',
+  '-rv, --runnerty-version <version>',
   `set runnerty version to install as a dependency when creating a new project`,
   runnertyVersion => {
     options.runnertyVersion = runnertyVersion;
@@ -51,6 +50,12 @@ program
     console.log('  $rty new');
     console.log('  $rty new my_runnerty_project');
   });
+
+// skip git:
+program.option('-sg, --skip-git', `do not initialize a git repository`, skipGit => {
+  options.skipGit = true;
+});
+
 // migrate:
 program
   .command('migrate [project] [crontab_path]')
@@ -65,14 +70,6 @@ program
     console.log('');
     console.log('  $rty migrate my_runnerty_migrated_project');
     console.log('  $rty migrate my_runnerty_migrated_project /usr/lib/cron/tabs/my_user');
-  });
-// templates:
-program
-  .command('templates')
-  .alias('t')
-  .description('generates a directory with sample email templates')
-  .action(() => {
-    generateTemplates();
   });
 // add module:
 program

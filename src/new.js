@@ -9,30 +9,48 @@ async function newProject(project, options) {
   project = project || 'runnerty_sample_project';
   const scaffoldProject = options.prod ? '../prod' : '../base/';
   const sample_dir_path = path.join(__dirname, scaffoldProject);
-  const detination_path = path.join(process.cwd(), project);
+  const destination_path = path.join(process.cwd(), project);
 
   try {
-    await fs.copy(sample_dir_path, detination_path);
-
-    if (options.runnertyVersion) {
-      const destinationPackage = path.join(detination_path, 'package.json');
-      const content = JSON.parse(fs.readFileSync(destinationPackage, 'utf8'));
+    await fs.copy(sample_dir_path, destination_path);
+    const destinationPackage = path.join(destination_path, 'package.json');
+    const content = JSON.parse(fs.readFileSync(destinationPackage, 'utf8'));
+    content.name = project;
+    // Runnerty version:
+    if (options.runnertyVersion && content.dependencies.runnerty) {
       content.dependencies.runnerty = options.runnertyVersion;
-      fs.writeFileSync(destinationPackage, JSON.stringify(content));
     }
+    await fs.writeFile(destinationPackage, JSON.stringify(content));
+    console.log(colors.bold(`${colors.bgGreen('√')} Formatting package.json with Prettier.`));
+    await execute(`npx prettier --write ${destinationPackage}`, null);
 
     console.log(colors.bold('Please wait, running npm install...'));
-    await execute(`npm install --prefix ${detination_path} ${detination_path}`, null);
+    await execute(`npm install --prefix ${destination_path} ${destination_path}`, null);
     console.log(colors.bold(`${colors.bgGreen('√')} npm installation finish.`));
+
+    // Git
+    if (!options.skipGit) {
+      try {
+        console.log(colors.bold('Initializing git project...'));
+        await execute(`git --work-tree=${destination_path} --git-dir=${destination_path}/.git init`);
+        await execute(`git --work-tree=${destination_path} --git-dir=${destination_path}/.git add --all`);
+        await execute(
+          `git --work-tree=${destination_path} --git-dir=${destination_path}/.git commit --author="Runnerty <hello@runnerty.io>" -m "first commit"`
+        );
+      } catch (err) {
+        throw new Error('Error initializing git project');
+      }
+    }
+
     console.log(
       colors.bold(
         `${colors.green('✔')} Sample project ${colors.green(project)} has been created in ${colors.green(
-          detination_path
+          destination_path
         )}\n`
       )
     );
   } catch (err) {
-    console.error(colors.bold(`${colors.red('✖')} Error cloning repo `, err));
+    console.error(colors.bold(`${colors.red('✖')}`, err.message || 'Error cloning repo.'));
   }
 }
 module.exports = newProject;
