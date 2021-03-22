@@ -2,6 +2,7 @@ node_modules
 .all-contributorsrc
 .eslintignore
 .gitignore
+gitignore
 .prettierignore
 LICENSE
 *.png

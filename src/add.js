@@ -11,13 +11,15 @@ const resolve = require('resolve');
 async function addModule(moduleId, options) {
   try {
     console.log(colors.bold('Please wait, running npm install...'));
-    await execute(`npm install ${moduleId} --save`, null);
+    //await execute(`npm install ${moduleId} --save`, null);
     const npaInfo = npa(moduleId);
     const moduleName = npaInfo.name;
     const modulePath = path.dirname(resolve.sync(moduleName, { basedir: process.cwd() }));
     const configPath = options.configFilePath || './config.json';
+    const packagePath = options.packageFilePath || './package.json';
     const scaffoldPath = path.join(modulePath, '/scaffold');
     const scaffoldConfigPath = path.join(scaffoldPath, 'config.json');
+    const scaffoldPackagePath = path.join(scaffoldPath, 'package.json');
     const scaffoldPlanPath = path.join(scaffoldPath, 'plan.json');
     const scaffoldAssetsPath = path.join(scaffoldPath, '/assets');
 
@@ -52,6 +54,34 @@ async function addModule(moduleId, options) {
 
         console.log(colors.bold(`${colors.bgGreen('√')} Formatting config.json with Prettier.`));
         await execute(`npx prettier --write ${configPath}`, null);
+      }
+      // Scaffold package.json (scripts/dependencies/devDependencies):
+      if (fs.existsSync(packagePath) && fs.existsSync(scaffoldPackagePath)) {
+        const propsEnabled = ['scripts', 'dependencies', 'devDependencies'];
+        console.log(
+          colors.bold(`${colors.bgGreen('√')} Applying scaffold sample package to ${path.basename(packagePath)}`)
+        );
+        const packageObject = await jsonfile.readFile(packagePath);
+        const scaffoldPackageObject = await jsonfile.readFile(scaffoldPackagePath);
+
+        for (const prop of propsEnabled) {
+          for (const scaffoldConfig in scaffoldPackageObject[prop]) {
+            let idInUse = false;
+            for (const currentConfig in packageObject[prop]) {
+              if (scaffoldConfig === currentConfig) {
+                idInUse = true;
+              }
+            }
+            if (!idInUse) {
+              if (!packageObject[prop]) packageObject[prop] = {};
+              packageObject[prop][scaffoldConfig] = scaffoldPackageObject[prop][scaffoldConfig];
+            }
+          }
+        }
+        await jsonfile.writeFile(packagePath, packageObject, { spaces: 2 });
+
+        console.log(colors.bold(`${colors.bgGreen('√')} Formatting package.json with Prettier.`));
+        await execute(`npx prettier --write ${packagePath}`, null);
       }
       // Scaffold plan:
       if (fs.existsSync(scaffoldPlanPath)) {

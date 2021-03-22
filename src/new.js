@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
+const fsp = require('fs').promises;
 const path = require('path');
 const colors = require('colors');
 const execute = require('./lib/exec');
@@ -13,6 +14,9 @@ async function newProject(project, options) {
 
   try {
     await fs.copy(sample_dir_path, destination_path);
+    try {
+      await fsp.rename(path.join(destination_path, 'gitignore'), path.join(destination_path, '.gitignore'));
+    } catch (err) {}
     const destinationPackage = path.join(destination_path, 'package.json');
     const content = JSON.parse(fs.readFileSync(destinationPackage, 'utf8'));
     content.name = project;

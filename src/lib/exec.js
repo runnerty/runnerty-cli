@@ -7,11 +7,6 @@ function execute(cmd, args) {
     const child = spawn(cmd, args, { shell: true });
     child.stdout.pipe(process.stdout);
     child.stderr.pipe(process.stderr);
-    /*
-    child.on('exit', (code, signal) => {
-      resolve(code);
-    });
-    */
     child.on('close', code => {
       if (code === 0) {
         resolve();

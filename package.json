@@ -1,6 +1,6 @@
 {
   "name": "runnerty-cli",
-  "version": "3.2.0-rc",
+  "version": "3.2.0-rc1",
   "description": "Runnerty CLI Tool",
   "main": "index.js",
   "preferGlobal": true,
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/runnerty/runnerty-cli#readme",
   "dependencies": {
     "colors": "~1.4.0",
-    "commander": "~7.1.0",
+    "commander": "~7.2.0",
     "cron-parser": "~3.3.0",
     "fs-extra": "~9.1.0",
     "jsonfile": "~6.1.0",
