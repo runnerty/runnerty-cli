@@ -11,7 +11,7 @@ const resolve = require('resolve');
 async function addModule(moduleId, options) {
   try {
     console.log(colors.bold('Please wait, running npm install...'));
-    //await execute(`npm install ${moduleId} --save`, null);
+    await execute(`npm install ${moduleId} --save`, null);
     const npaInfo = npa(moduleId);
     const moduleName = npaInfo.name;
     const modulePath = path.dirname(resolve.sync(moduleName, { basedir: process.cwd() }));
